@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <com.millet.planet.customViews.textviews.RegularTextView
+            android:id="@+id/nutritionName"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/milletPlanet"
+            android:textSize="15sp"
+    />
+
+    <com.millet.planet.customViews.textviews.RegularTextView
+            android:id="@+id/nutritionValue"
+            android:layout_width="0dp"
+            android:layout_weight="0.7"
+            android:layout_height="wrap_content"
+            android:text="@string/milletPlanet"
+            android:textSize="15sp"
+            />
+
+</LinearLayout>

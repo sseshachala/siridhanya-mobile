@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#ffffff"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp"
+        app:cardUseCompatPadding="true">
+
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+    <RelativeLayout
+            android:id="@+id/upperLayout"
+            android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+        <CheckBox
+                android:id="@+id/viewMoreCB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@drawable/view_more_button"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="10dp"
+                android:layout_centerVertical="true"/>
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="vertical"
+                      android:layout_centerVertical="true"
+                      android:layout_margin="10dp"
+                      android:layout_toLeftOf="@+id/viewMoreCB">
+
+            <com.millet.planet.customViews.textviews.MediumTextView
+                    android:id="@+id/nameHeader"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/diseaseName"
+                    android:textColor="@color/colorPrimaryDark"/>
+
+            <com.millet.planet.customViews.textviews.RegularTextView
+                    android:id="@+id/itemName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/milletPlanet"
+                    android:layout_below="@+id/nameHeader"
+            android:textSize="15sp"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+        <RelativeLayout
+                android:id="@+id/moreOptionsLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/upperLayout">
+
+            <View
+                    android:id="@+id/seprator"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@android:color/black"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp"/>
+
+
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:orientation="vertical"
+                          android:layout_centerVertical="true"
+                          android:layout_margin="10dp"
+                            android:id="@+id/juiceLayout"
+            android:layout_below="@+id/seprator">
+
+                <com.millet.planet.customViews.textviews.MediumTextView
+                        android:id="@+id/juiceHeader"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dictoction_kashayas_juice"
+                        android:textColor="@color/colorPrimaryDark"/>
+
+                <com.millet.planet.customViews.textviews.RegularTextView
+                        android:id="@+id/juiceDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/milletPlanet"
+                        android:layout_below="@+id/nameHeader"
+                        android:textSize="15sp"/>
+
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:orientation="vertical"
+                          android:layout_centerVertical="true"
+                          android:layout_marginLeft="10dp"
+                          android:layout_marginRight="10dp"
+                          android:layout_marginBottom="10dp"
+                          android:id="@+id/protocolLayout"
+                          android:layout_below="@+id/juiceLayout">
+
+                <com.millet.planet.customViews.textviews.MediumTextView
+                        android:id="@+id/protocolHeader"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/milletProtocol"
+                        android:textColor="@color/colorPrimaryDark"/>
+
+                <com.millet.planet.customViews.textviews.RegularTextView
+                        android:id="@+id/protocolDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/milletPlanet"
+                        android:layout_below="@+id/nameHeader"
+                        android:textSize="15sp"/>
+
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:orientation="vertical"
+                          android:layout_centerVertical="true"
+                          android:layout_marginLeft="10dp"
+                          android:layout_marginRight="10dp"
+                          android:layout_marginBottom="10dp"
+                          android:layout_below="@+id/protocolLayout"
+            android:id="@+id/instructionLayout">
+
+                <com.millet.planet.customViews.textviews.MediumTextView
+                        android:id="@+id/specialInstructionHeader"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/specialInstruction"
+                        android:textColor="@color/colorPrimaryDark"/>
+
+                <com.millet.planet.customViews.textviews.RegularTextView
+                        android:id="@+id/instructionDescription"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/milletPlanet"
+                        android:layout_below="@+id/nameHeader"
+                        android:textSize="15sp"/>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

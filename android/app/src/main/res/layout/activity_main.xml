@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <RelativeLayout
+                android:id="@+id/app_main_bar"
+                android:layout_width="match_parent"
+                      android:layout_height="55dp"
+        android:elevation="5dp">
+
+
+            <com.millet.planet.customViews.textviews.BoldTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+            android:text="@string/milletPlanet"
+            android:layout_centerInParent="true"
+            android:textSize="27sp"
+            android:textColor="@color/colorPrimaryDark"/>
+
+
+            <ImageView
+                    android:id="@+id/syncDashboard"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/sync"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="10dp"/>
+
+        </RelativeLayout>
+    <LinearLayout
+            android:id="@+id/shadow" android:layout_width="match_parent"
+                  android:layout_height="5dp"
+                  android:layout_below="@+id/app_main_bar"
+                  android:background="@drawable/toolbar_dropshadow"
+    android:orientation="horizontal"/>
+
+    <android.support.v7.widget.RecyclerView
+            android:id="@+id/dashboard" android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+    android:layout_below="@+id/shadow"></android.support.v7.widget.RecyclerView>
+
+
+    <ProgressBar android:layout_width="wrap_content" android:layout_height="wrap_content"
+    android:id="@+id/progress_circular"
+    android:layout_centerInParent="true"
+    android:visibility="visible"/>
+
+</RelativeLayout>

@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Dr. Khader vali\'s Millet Planet</string>
+    <string name="milletPlanet">Millet Planet</string>
+    <string name="about">About</string>
+    <string name="name">Name</string>
+    <string name="diseaseName">Disease Name</string>
+    <string name="dictoction_kashayas_juice">Dictoction Kashayas Juice</string>
+    <string name="milletProtocol">Millet Protocol</string>
+    <string name="specialInstruction">Special Instructions</string>
+    <string name="cancer_type">Cancer Type</string>
+    <string name="dictoction_kashayas_juice_every_week">Dictoction Kashayas Juice Every Week</string>
+    <string name="dictoction_kashayas_juice_afternoon_each_week">Dictoction Kashayas Juice Afternoon Each Week</string>
+    <string name="answer">Answer</string>
+    <string name="scientificName">Scientific Name</string>
+    <string name="millet_type">Millet Type</string>
+    <string name="description">Description</string>
+    <string name="uses">Uses</string>
+    <string name="nutrition">Nutrition</string>
+    <string name="value">Value</string>
+    <string name="alternative_names">Alternative Names</string>
+    <string name="moreInfo">More Info</string>
+    <string name="author">Author</string>
+    <string name="email">Email</string>
+</resources>

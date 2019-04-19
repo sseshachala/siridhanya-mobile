@@ -1,0 +1,30 @@
+PODS:
+  - Alamofire (4.8.2)
+  - SDWebImage (5.0.0):
+    - SDWebImage/Core (= 5.0.0)
+  - SDWebImage/Core (5.0.0)
+  - SwiftSoup (1.7.4)
+  - SwiftSpinner (1.6.2)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.7)
+  - SDWebImage
+  - SwiftSoup
+  - SwiftSpinner
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - SDWebImage
+    - SwiftSoup
+    - SwiftSpinner
+
+SPEC CHECKSUMS:
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  SDWebImage: 5de80a0302de9e377e62f47d2fa1304efff0e55f
+  SwiftSoup: 92f5b348c131aed8af04f4326db1579ab19fa08c
+  SwiftSpinner: 3a4c6dea425e5a31b908a8b1dd5dcd1ad4d96340
+
+PODFILE CHECKSUM: 3fccbf62010b97b5515881dd957df532cb6e4f4d
+
+COCOAPODS: 1.5.0

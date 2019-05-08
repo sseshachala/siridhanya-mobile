@@ -48,13 +48,14 @@ class DashBoard: UIViewController {
     }
     func getDashBoardData(){
         
-        self.dashBoardDataArray = []
+        
         
         
         WebService.getAPIWith(api: kMenu, jsonString: [:], header: [:], centerUrl: "", msg: "Loading dashboard data.", success: { (result, flag) in
-            print(result)
-            self.dashBoardDataArray = []
+            //print(result)
+            
             if let data = result as? [AnyObject]{
+                self.dashBoardDataArray = []
                 for dict in data{
                     
                     var objDashBoardModel = DashBoardModel()
@@ -109,7 +110,7 @@ class DashBoard: UIViewController {
      }
      */
     @IBAction func refreshButtonPressed(_ sender: Any) {
-        self.dashBoardDataArray = []
+        
         self.getDashBoardData()
     }
     
@@ -136,17 +137,29 @@ extension DashBoard: UICollectionViewDelegate , UICollectionViewDataSource, UICo
             if(objData.menu_name == "About Doctor Khader Vali"){
                 let aboutVC = self.storyboard?.instantiateViewController(withIdentifier: "AboutViewController") as! AboutViewController
                 
-               aboutVC.dashBoardDataObj = objData
+                aboutVC.dashBoardDataObj = objData
                 
                 self.navigationController?.pushViewController(aboutVC, animated: true)
-            }else if(objData.menu_name == "Millet Nutrition"){
+            }else if(objData.menu_name == "Find Millets"){
                 let aboutVC = self.storyboard?.instantiateViewController(withIdentifier: "NutritinViewController") as! NutritinViewController
                 
                 aboutVC.dashBoardDataObj = objData
                 
-            self.navigationController?.pushViewController(aboutVC, animated: true)
+                self.navigationController?.pushViewController(aboutVC, animated: true)
             }else if(objData.menu_name == "Millet FAQ"){
                 let aboutVC = self.storyboard?.instantiateViewController(withIdentifier: "FAQ") as! FAQ
+                
+                aboutVC.dashBoardDataObj = objData
+                
+                self.navigationController?.pushViewController(aboutVC, animated: true)
+            }else if(objData.menu_name == "Lifestyle" || objData.menu_name == "Kids Instructions"){
+                let lifeStyleViewController = self.storyboard?.instantiateViewController(withIdentifier: "LifeStyleViewController") as! LifeStyleViewController
+                
+                lifeStyleViewController.dashBoardDataObj = objData
+                
+                self.navigationController?.pushViewController(lifeStyleViewController, animated: true)
+            }else if(objData.menu_name == "Search"){
+                let aboutVC = self.storyboard?.instantiateViewController(withIdentifier: "UniversalSearchViewController") as! UniversalSearchViewController
                 
                 aboutVC.dashBoardDataObj = objData
                 
@@ -178,7 +191,7 @@ extension DashBoard: UICollectionViewDelegate , UICollectionViewDataSource, UICo
         
         let HW = Int((self.view.frame.width - 22) / 3)
         
-        print(((self.view.frame.width - 22) / 3))
+     //   print(((self.view.frame.width - 22) / 3))
         
         
         return CGSize(width: HW, height: HW + 50)
@@ -187,9 +200,12 @@ extension DashBoard: UICollectionViewDelegate , UICollectionViewDataSource, UICo
     
     func openSafariView(obj : DashBoardModel){
         //obj
-        let safariVC = SFSafariViewController(url: NSURL(string: obj.service_name)! as URL)
-        self.present(safariVC, animated: true, completion: nil)
-        safariVC.delegate = self
+        
+        guard let url = URL(string: obj.service_name) else { return }
+        UIApplication.shared.open(url)
+        /* let safariVC = SFSafariViewController(url: NSURL(string: obj.service_name)! as URL)
+         self.present(safariVC, animated: true, completion: nil)
+         safariVC.delegate = self*/
     }
 }
 extension DashBoard : SFSafariViewControllerDelegate{

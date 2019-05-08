@@ -10,6 +10,10 @@ import UIKit
 
 class OtherTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var webViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var webView: UIWebView!
+    @IBOutlet weak var tempText: UITextView!
+    
     @IBOutlet weak var moreInfoButton: UIButton!
     
     @IBOutlet weak var authorButton: UIButton!

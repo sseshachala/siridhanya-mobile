@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.8.2)
+  - IQKeyboardManagerSwift (6.2.1)
   - SDWebImage (5.0.0):
     - SDWebImage/Core (= 5.0.0)
   - SDWebImage/Core (5.0.0)
@@ -8,6 +9,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
+  - IQKeyboardManagerSwift
   - SDWebImage
   - SwiftSoup
   - SwiftSpinner
@@ -15,16 +17,18 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
+    - IQKeyboardManagerSwift
     - SDWebImage
     - SwiftSoup
     - SwiftSpinner
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  IQKeyboardManagerSwift: 0f0ae8935360b4003e6ea1ac7c19898f01e2f7c7
   SDWebImage: 5de80a0302de9e377e62f47d2fa1304efff0e55f
   SwiftSoup: 92f5b348c131aed8af04f4326db1579ab19fa08c
   SwiftSpinner: 3a4c6dea425e5a31b908a8b1dd5dcd1ad4d96340
 
-PODFILE CHECKSUM: 3fccbf62010b97b5515881dd957df532cb6e4f4d
+PODFILE CHECKSUM: 883e55c7c15f4a405a423925a6dda670b144aa57
 
 COCOAPODS: 1.5.0

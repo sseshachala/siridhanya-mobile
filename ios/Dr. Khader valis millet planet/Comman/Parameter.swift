@@ -3,12 +3,15 @@ import Foundation
 
 
 
-let AppURL = "http://198.211.112.4/sdmobile/api/"
+//let AppURL = "http://198.211.112.4/sdmobile/api/"
 //let kMenu = "http://198.211.112.4/sdmobile/api/menu"
-let kMenu = "https://services.milletplanet.org/sdmobile/api/menu"
+let kMenu = "https://services.milletplanet.org/sdmobile/api/v1.0/menu"
 
 
+//let KBaseUrl = "http://dev-services.milletplanet.org/sdmobile/api/v1.0/"
+//let kMenu = "http://dev-services.milletplanet.org/sdmobile/api/v1.0/menu"
 
+let kGenericSearch = "search/doPost"
 
 
 let kDashBoardData = "DashBoardData"

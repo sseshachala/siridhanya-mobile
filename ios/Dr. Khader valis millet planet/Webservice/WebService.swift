@@ -125,8 +125,105 @@ class WebService : NSObject
          }*/
     }
     
-    
-    
+    //MARK: <POST REQUEST METHOD>
+    class func postAPI(api:String,jsonString:[String: AnyObject], header: HTTPHeaders , centerUrl : String, msg : String ,success: @escaping CompletionHandler,failure: @escaping(NSError)  -> Void){
+        
+        let apiString = api as String
+      //  print(apiString)
+        
+        var topVC = UIApplication.shared.keyWindow?.rootViewController
+        while((topVC!.presentedViewController) != nil){
+            topVC = topVC!.presentedViewController
+        }
+        DispatchQueue.main.async {
+            if(!msg.isBlank)
+            {
+                Common_Methods.showHUD(with: msg)
+            }
+            
+        }
+        
+        let headers = [
+            "accept": "application/json",
+            "content-type": "application/x-www-form-urlencoded; charset=utf-8",
+            "cache-control": "no-cache"
+        ]
+        
+        
+        
+      
+        let manager = Alamofire.SessionManager.default
+        manager.session.configuration.timeoutIntervalForRequest = 620
+        
+        manager.request(apiString, method: HTTPMethod.post, parameters: jsonString, headers: headers)
+            .validate(statusCode: 200..<500)
+            .responseJSON { (result) in
+                switch result.result {
+                case .success:
+                    Common_Methods.hideHUD()
+                    if let json = result.value {
+                        Common_Methods.hideHUD()
+                        success(json as AnyObject, true)
+                        
+                    } else {
+                        Common_Methods.hideHUD()
+                        success(result.value as AnyObject, false)
+                    }
+                    break
+                case .failure(let error):
+                    Common_Methods.hideHUD()
+                    
+                    if (result.result.error?.localizedDescription.contains(KInternetOffline))!{
+                        //error.localizedDescription
+                        let alert = UIAlertController.init(title: KAppName, message: error.localizedDescription , preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler: { action in
+                            
+                        }))
+                        
+                        
+                        
+                        if  topVC?.presentedViewController == nil {
+                            //------Alert not necessary, already on the screen !----
+                            if let _ : UIAlertController = topVC as? UIAlertController {
+                                // nothing to do , AlertController already active
+                                // ...
+                                print("Alert not necessary, already on the screen !")
+                                
+                            }else{
+                                topVC?.present(alert, animated: true, completion: nil)
+                            }
+                        } else{
+                            /* topVC?.dismiss(animated: true) { () -> Void in
+                             topVC?.present(alert, animated: true, completion: nil)
+                             }*/
+                        }
+                        
+                        
+                        
+                    }
+                    else if error.localizedDescription.contains(kJSONserializError){
+                        let alert = UIAlertController.init(title: KAppName, message: KServerNotresponding , preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler: { action in
+                            
+                        }))
+                        topVC?.present(alert, animated: true, completion: nil)
+                    }
+                    else{
+                        let alert = UIAlertController.init(title: KAppName, message: error.localizedDescription , preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.cancel, handler: { action in
+                            
+                        }))
+                        topVC?.present(alert, animated: true, completion: nil)
+                        
+                    }
+                    
+                    failure(error as NSError)
+                    break
+                }
+        }
+        
+        
+    }
     
     
     //MARK: <GET REQUEST METHOD>

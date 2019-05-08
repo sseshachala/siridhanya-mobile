@@ -9,7 +9,16 @@
 import UIKit
 
 class NutritoinCell: UITableViewCell {
-
+    @IBOutlet weak var descriptionWebViewHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var alternativeWebViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var millettypeWebViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var userWebViewHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var userWebView: UIWebView!
+    @IBOutlet weak var descriptionWebView: UIWebView!
+    @IBOutlet weak var milletTypeWebView: UIWebView!
+    @IBOutlet weak var alternativeWebView: UIWebView!
     @IBOutlet weak var milletTypeTop: NSLayoutConstraint!
     @IBOutlet weak var alterNativeFixLbl: UILabel!
     @IBOutlet weak var alternativeLBl: UILabel!

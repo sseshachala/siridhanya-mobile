@@ -10,7 +10,8 @@ import UIKit
 
 class AboutViewController: UIViewController {
     
-    @IBOutlet weak var aboutTxtView: UITextView!
+    @IBOutlet weak var webView: UIWebView!
+   
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var titleLbl: UILabel!
     var aboutViewArray = [AboutViewModel]()
@@ -25,7 +26,7 @@ class AboutViewController: UIViewController {
     func getAboutData(){
         
         WebService.getAPIWith(api: dashBoardDataObj.service_name, jsonString: [:], header: [:], centerUrl: "", msg: "Loading...", success: { (result, flag) in
-            print(result)
+            //print(result)
             if let data = result as? [AnyObject]{
                 for dict in data{
                     
@@ -36,7 +37,9 @@ class AboutViewController: UIViewController {
                 }
                 if(self.aboutViewArray.count > 0){
                     let obj = self.aboutViewArray[0]
-                    self.aboutTxtView.text = obj.about
+                    self.webView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                    self.webView.loadHTMLString(obj.about, baseURL: nil)
+                  //  self.aboutTxtView.text = obj.about
                     self.userImageView.sd_setImage(with: NSURL(string: obj.image )! as URL, placeholderImage: #imageLiteral(resourceName: "smallLogoWithBack"), options: .retryFailed, completed: nil)
                 }
                 

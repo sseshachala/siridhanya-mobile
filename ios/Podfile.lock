@@ -1,0 +1,42 @@
+PODS:
+  - ADCountryPicker (2.1.0)
+  - Alamofire (4.8.2)
+  - IQKeyboardManagerSwift (6.2.1)
+  - MaterialTextField (1.0.1)
+  - SDWebImage (5.0.0):
+    - SDWebImage/Core (= 5.0.0)
+  - SDWebImage/Core (5.0.0)
+  - SwiftSoup (1.7.4)
+  - SwiftSpinner (1.6.2)
+
+DEPENDENCIES:
+  - ADCountryPicker (~> 2.1.0)
+  - Alamofire (~> 4.7)
+  - IQKeyboardManagerSwift
+  - MaterialTextField (~> 1.0)
+  - SDWebImage
+  - SwiftSoup
+  - SwiftSpinner
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - ADCountryPicker
+    - Alamofire
+    - IQKeyboardManagerSwift
+    - MaterialTextField
+    - SDWebImage
+    - SwiftSoup
+    - SwiftSpinner
+
+SPEC CHECKSUMS:
+  ADCountryPicker: 502cee76a30ea1c3834eb0df170ce635691655c9
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  IQKeyboardManagerSwift: 0f0ae8935360b4003e6ea1ac7c19898f01e2f7c7
+  MaterialTextField: f1a0786588e4d3610cb9bb62d2adbe9777cebbf9
+  SDWebImage: 5de80a0302de9e377e62f47d2fa1304efff0e55f
+  SwiftSoup: 92f5b348c131aed8af04f4326db1579ab19fa08c
+  SwiftSpinner: 3a4c6dea425e5a31b908a8b1dd5dcd1ad4d96340
+
+PODFILE CHECKSUM: 845fde9a83b54401f3623ae8a5df1c35acc274dd
+
+COCOAPODS: 1.5.0

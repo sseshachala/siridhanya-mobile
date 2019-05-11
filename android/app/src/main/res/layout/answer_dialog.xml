@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#ffffff"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp"
+        app:cardUseCompatPadding="true">
+
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+        <RelativeLayout
+                android:id="@+id/questionLayout" android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorAccent"
+                android:padding="5dp">
+
+            <ImageView
+                    android:id="@+id/itemCount"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:textColor="@android:color/white"
+                    android:layout_margin="10dp"
+                    android:src="@mipmap/q"
+                    android:gravity="center"/>
+
+            <com.millet.planet.customViews.textviews.MediumTextView
+                    android:id="@+id/itemQuestion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/milletPlanet"
+                    android:padding="5dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    android:layout_toRightOf="@+id/itemCount"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/closeDialog"
+
+            />
+
+            <ImageView
+                    android:id="@+id/closeDialog"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/cancel"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="5dp"
+                    android:layout_centerVertical="true"/>
+
+        </RelativeLayout>
+
+        <ImageView
+                android:id="@+id/answerImage"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:textColor="@android:color/white"
+                android:layout_margin="10dp"
+                android:src="@mipmap/a"
+                android:gravity="center"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/questionLayout"/>
+
+
+        <WebView
+                android:id="@+id/itemAnswer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/answerImage"></WebView>
+
+
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

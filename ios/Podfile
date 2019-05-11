@@ -8,6 +8,7 @@ target 'Dr. Khader valis millet planet' do
   pod 'SwiftSpinner'
   pod 'SDWebImage'
   pod 'SwiftSoup'
+  pod 'IQKeyboardManagerSwift'
   # Pods for Dr. Khader valis millet planet
 
 end

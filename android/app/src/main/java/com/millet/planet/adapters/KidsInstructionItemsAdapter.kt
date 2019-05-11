@@ -6,6 +6,8 @@ import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebSettings
+import android.webkit.WebView
 import com.millet.planet.R
 import com.millet.planet.customViews.textviews.MyTagHandler
 import com.millet.planet.models.KidsInstructionData
@@ -25,8 +27,10 @@ class KidsInstructionItemsAdapter(private val context: Context, private var myDa
     override fun getItemCount(): Int = myDataset.size
 
     override fun onBindViewHolder(holder: KidsInstructionViewHolder, position: Int) {
-        holder?.itemNote?.text = Html.fromHtml(myDataset.get(position).note,null, MyTagHandler())
         holder?.itemCount?.text = ((position + 1) as Int).toString()
+
+        initWebView(holder?.itemNote)
+        holder?.itemNote.loadData(myDataset.get(position).note, "text/html; charset=UTF-8", null)
     }
 
     fun sendData(kidsInstructionArray: java.util.ArrayList<KidsInstructionData>) {
@@ -39,6 +43,16 @@ class KidsInstructionItemsAdapter(private val context: Context, private var myDa
         val itemCount = itemView.itemCount
         val itemNote = itemView.itemNote
     }
+
+
+    private fun initWebView(webview: WebView) {
+        webview?.getSettings().setJavaScriptEnabled(true)
+        webview?.getSettings().setPluginState(WebSettings.PluginState.ON)
+        webview?.getSettings().setJavaScriptCanOpenWindowsAutomatically(true)
+        webview?.getSettings().setSupportMultipleWindows(true)
+        webview?.getSettings().setAllowFileAccess(true)
+    }
+
 
 }
 

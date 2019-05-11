@@ -8,6 +8,8 @@ import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebSettings
+import android.webkit.WebView
 import com.millet.planet.R
 import com.millet.planet.customViews.textviews.MyTagHandler
 import com.millet.planet.models.GlobalJsonData
@@ -32,24 +34,27 @@ class GlobalJsonItemsAdapter(private val context: Context, private var myDataset
 
         var data : GlobalJsonData = myDataset.get(position)
 
-        holder?.itemName?.text = data.name
-        holder?.description?.text =  Html.fromHtml(data.description, null, MyTagHandler())
+        holder?.itemName?.text = Html.fromHtml(data.name, null, MyTagHandler())
+
+        initWebView(holder?.description)
+        holder?.description.loadData(data.description, "text/html; charset=UTF-8", null)
+
         holder?.moreInfoLink?.text =  Html.fromHtml("<u>Video</u>")// Html.fromHtml(data.video_url)
         holder?.authorName.text = Html.fromHtml(data.author)
 
-        if(data.video_url.isEmpty()) {
+        if(data.video_url == null || data.video_url.isEmpty()) {
             holder?.morInfoLayout.visibility = View.GONE
         } else {
             holder?.morInfoLayout.visibility = View.VISIBLE
         }
 
-        if(data.author.isEmpty()) {
+        if(data.author == null || data.author.isEmpty()) {
             holder?.authorLayout.visibility = View.GONE
         } else {
             holder?.authorLayout.visibility = View.VISIBLE
         }
 
-        if(data.image.isEmpty()) {
+        if(data.image == null || data.image.isEmpty()) {
             holder.imageLayout?.visibility = View.GONE
         } else {
             holder.imageLayout?.visibility = View.VISIBLE
@@ -114,6 +119,14 @@ class GlobalJsonItemsAdapter(private val context: Context, private var myDataset
         val emailIntent = Intent(Intent.ACTION_SENDTO)
         emailIntent.data = Uri.parse("mailto:$email")
         context.startActivity(Intent.createChooser(emailIntent, "Email to author"))
+    }
+
+    private fun initWebView(webview: WebView) {
+        webview?.getSettings().setJavaScriptEnabled(true)
+        webview?.getSettings().setPluginState(WebSettings.PluginState.ON)
+        webview?.getSettings().setJavaScriptCanOpenWindowsAutomatically(true)
+        webview?.getSettings().setSupportMultipleWindows(true)
+        webview?.getSettings().setAllowFileAccess(true)
     }
 
 }

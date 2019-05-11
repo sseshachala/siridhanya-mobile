@@ -7,25 +7,32 @@ class MilletCancerDietData {
             field = value
         }
 
-    var cancer_type: String = ""
+    var Type_of_Ailment: String = ""
         get() = field
         set(value) {
             field = value
         }
 
-    var dictoction_kashayas_juice_every_week: String = ""
+
+    var Dictoction_Kashayam_Diet: String = ""
         get() = field
         set(value) {
             field = value
         }
 
-    var dictoction_kashayas_juice_afternoon_each_week: String = ""
+    var Tags_Keywords: String = ""
         get() = field
         set(value) {
             field = value
         }
 
     var milletProtocol: String = ""
+        get() = field
+        set(value) {
+            field = value
+        }
+
+    var description: String = ""
         get() = field
         set(value) {
             field = value

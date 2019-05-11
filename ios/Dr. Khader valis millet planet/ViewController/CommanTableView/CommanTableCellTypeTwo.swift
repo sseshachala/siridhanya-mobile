@@ -23,6 +23,18 @@ class CommanTableCellTypeTwo: UITableViewCell {
     
     @IBOutlet weak var specialInstructionLbl: UILabel!
     
+    @IBOutlet weak var specialInstWebView: UIWebView!
+    @IBOutlet weak var milletProWebView: UIWebView!
+    @IBOutlet weak var ductoctionWebView: UIWebView!
+    
+    @IBOutlet weak var specialInstWebViewHeight: NSLayoutConstraint!
+    @IBOutlet weak var ductoctionWebViewHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var milletProWebViewHeight: NSLayoutConstraint!
+    
+    
+    
+    
     @IBOutlet weak var Dictoction: UILabel!
     
     @IBOutlet weak var milletProtocol: UILabel!
@@ -30,6 +42,10 @@ class CommanTableCellTypeTwo: UITableViewCell {
     
     @IBOutlet weak var exapndImageView: UIImageView!
     @IBOutlet weak var specialINstructiontxt: UILabel!
+    
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

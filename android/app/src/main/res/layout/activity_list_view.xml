@@ -21,20 +21,33 @@
                 android:layout_height="wrap_content"
                 android:text="@string/milletPlanet"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="12dp"
-                android:textSize="25sp"
+                android:layout_marginTop="15dp"
+                android:textSize="20sp"
                 android:textColor="@android:color/white"
         android:layout_toRightOf="@+id/backToDashboard"
         android:layout_marginLeft="10dp"/>
 
         <ImageView
                 android:id="@+id/backToDashboard"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/back"
                 android:layout_alignParentLeft="true"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"/>
+                android:padding="10dp"
+                android:layout_marginTop="5dp"/>
+
+
+        <android.support.v7.widget.SearchView
+                android:id="@+id/dataSearchView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:iconifiedByDefault="true"
+                android:queryHint="Search here"
+                android:layout_alignParentRight="true"
+                android:visibility="gone">
+
+        </android.support.v7.widget.SearchView>
 
     </RelativeLayout>
 
@@ -88,15 +101,15 @@
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"/>
 
-            <com.millet.planet.customViews.textviews.RegularTextView
+
+            <WebView
                     android:id="@+id/aboutRenderedText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/aboutText"
-                    android:scrollbars="vertical"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:layout_marginBottom="10dp"/>
+                    android:layout_below="@+id/aboutText">
+
+            </WebView>
+
 
         </RelativeLayout>
 

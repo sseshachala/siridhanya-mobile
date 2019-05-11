@@ -10,8 +10,9 @@ import UIKit
 import SwiftSoup
 class FAQ: UIViewController {
     
-    @IBOutlet weak var answerExtraImageViewHeight: NSLayoutConstraint!
-    @IBOutlet weak var answerExtraImageview: UIImageView!
+    
+    
+    @IBOutlet weak var webView: UIWebView!
     
     @IBOutlet weak var answerTextView: UITextView!
     @IBOutlet weak var answerImageView: UIImageView!
@@ -42,7 +43,7 @@ class FAQ: UIViewController {
     func getApiValue(){
         
         WebService.getAPIWith(api: dashBoardDataObj.service_name, jsonString: [:], header: [:], centerUrl: "", msg: "Loading...", success: { (result, flag) in
-            print(result)
+           // //print(result)
             
             if let data = result.value(forKeyPath: "data") as? [Any]{
                // self.totalPage = (result.value(forKeyPath: "last_page") as? Int)!
@@ -85,7 +86,7 @@ class FAQ: UIViewController {
     func getNextPage(Url : String){
         
         WebService.getAPIWith(api: Url, jsonString: [:], header: [:], centerUrl: "", msg: "Loading...", success: { (result, flag) in
-            print(result)
+            ////print(result)
             
             if let data = result.value(forKeyPath: "data") as? [Any]{
              //   self.totalPage = (result.value(forKeyPath: "last_page") as? Int)!
@@ -152,7 +153,7 @@ extension FAQ : UITableViewDelegate , UITableViewDataSource{
         
         let objData = self.faqArray[indexPath.row]
         
-        cell.txtValueLbl.text = objData.question
+        cell.txtValueLbl.text = objData.question.htmlToString
         
         cell.iconImage.sd_setImage(with: NSURL(string: objData.question_icon )! as URL, placeholderImage: #imageLiteral(resourceName: "q"), options: .retryFailed, completed: nil)
         cell.answerButton.addTarget(self, action: #selector(self.buttonAnswerPressed(_:)), for: .touchUpInside)
@@ -189,9 +190,9 @@ extension FAQ : UITableViewDelegate , UITableViewDataSource{
     @objc func buttonAnswerPressed(_ sender: UIButton){
         
         let objData = self.faqArray[sender.tag]
-       answerTextView.isHidden = false
-        answerExtraImageview.isHidden = true
-        self.answerTextView.text  = ""
+       //answerTextView.isHidden = false
+     //   answerExtraImageview.isHidden = true
+        //self.answerTextView.text  = ""
         
      /*   var imageURl = ""
         var dataString = ""
@@ -236,20 +237,22 @@ extension FAQ : UITableViewDelegate , UITableViewDataSource{
         
         DispatchQueue.main.async {
         Common_Methods.showHUD(with: "")
-            let x = "<span style=\"font-family: Roboto-Regular; font-size: 17\">\(objData.answer)</span>"
+            self.webView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            self.webView.loadHTMLString(objData.answer, baseURL: nil)
+          
+       /*     let x = "<span style=\"font-family: Roboto-Regular; font-size: 17\">\(objData.answer)</span>"
             
         let htmlData = NSString(string: x).data(using: String.Encoding.unicode.rawValue)
         
         let options = [NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html]
         
-            let attributes = [NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-Bold", size: 17)!,
-                              NSAttributedString.Key.foregroundColor: UIColor.white]
+            let attributes = [NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-Bold", size: 17)!,NSAttributedString.Key.foregroundColor: UIColor.white]
             
             let attributedString = try! NSAttributedString(data: htmlData!, options: options, documentAttributes: nil)
             
             
 
-            self.answerTextView.attributedText = attributedString
+            self.answerTextView.attributedText = attributedString*/
         Common_Methods.hideHUD()
         }
         answerImageView.sd_setImage(with: NSURL(string: objData.answer_icon )! as URL, placeholderImage: #imageLiteral(resourceName: "A"), options: .retryFailed, completed: nil)

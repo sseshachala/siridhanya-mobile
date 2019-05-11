@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Dr. Khader vali\'s Millet Planet</string>
+    <string name="app_name">Dr. Khader vali\'s Millet Diet</string>
     <string name="milletPlanet">Millet Planet</string>
     <string name="about">About</string>
     <string name="name">Name</string>
@@ -21,4 +21,9 @@
     <string name="moreInfo">More Info</string>
     <string name="author">Author</string>
     <string name="email">Email</string>
+    <string name="selectOptionToProceed">Select option to proceed</string>
+    <string name="search">Search</string>
+    <string name="typeOfAilment">Type of ailment</string>
+    <string name="dictoction_kashayam_diet">Dictoction Kashayam Diet</string>
+    <string name="tagKeywords">Tags keywords</string>
 </resources>

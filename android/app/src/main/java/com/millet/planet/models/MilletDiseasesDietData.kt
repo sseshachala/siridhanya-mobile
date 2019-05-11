@@ -7,13 +7,20 @@ class MilletDiseasesDietData {
             field = value
         }
 
-    var disease_name: String = ""
+    var Type_of_Ailment: String = ""
         get() = field
         set(value) {
             field = value
         }
 
-    var dictoction_kashayas_juice: String = ""
+
+    var Dictoction_Kashayam_Diet: String = ""
+        get() = field
+        set(value) {
+            field = value
+        }
+
+    var Tags_Keywords: String = ""
         get() = field
         set(value) {
             field = value
@@ -25,7 +32,7 @@ class MilletDiseasesDietData {
             field = value
         }
 
-    var specialInstruction: String = ""
+    var description: String = ""
         get() = field
         set(value) {
             field = value

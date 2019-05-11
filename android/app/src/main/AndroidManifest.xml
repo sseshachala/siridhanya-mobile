@@ -12,6 +12,10 @@
             android:roundIcon="@mipmap/app_logo"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".RegistrationActivity" android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".GenericSearchActivity">
+        </activity>
         <activity android:name=".ListViewActivity">
         </activity>
         <activity android:name=".SplashActivity">

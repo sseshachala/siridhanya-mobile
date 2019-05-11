@@ -21,17 +21,15 @@
         android:background="@drawable/count_bg"
         android:gravity="center"/>
 
-        <com.millet.planet.customViews.textviews.RegularTextView
+        <WebView
                 android:id="@+id/itemNote"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/milletPlanet"
+                android:layout_below="@+id/aboutText"
                 android:layout_toRightOf="@+id/itemCount"
-                android:layout_centerHorizontal="true"
-                android:paddingTop="10dp"
-                android:paddingRight="10dp"
-                android:paddingBottom="10dp"
-        />
+                android:layout_marginTop="5dp">
+        </WebView>
+
 
     </RelativeLayout>
 </android.support.v7.widget.CardView>

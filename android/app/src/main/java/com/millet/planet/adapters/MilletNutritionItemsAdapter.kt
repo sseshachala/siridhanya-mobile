@@ -6,6 +6,8 @@ import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebSettings
+import android.webkit.WebView
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.millet.planet.R
@@ -32,26 +34,35 @@ class MilletNutritionItemsAdapter(private val context: Context, private val myDa
 
         var data : MilletNutritionData = myDataset.get(position)
 
-        holder?.itemName?.text = data.name
+        holder?.itemName?.text = Html.fromHtml(data.name, null, MyTagHandler())
         holder?.scientificName?.text = Html.fromHtml(data.scientific_name, null, MyTagHandler())
-        holder?.typeDescription?.text =  Html.fromHtml(data.millet_type, null, MyTagHandler())
-        holder?.description?.text =  Html.fromHtml(data.description, null, MyTagHandler())
-        holder?.usesDescription.text = Html.fromHtml(data.uses, null, MyTagHandler())
-        holder?.alternativeNamesDescription.text = Html.fromHtml(data.alternative_names, null, MyTagHandler())
 
-        if(data.description.isEmpty()) {
+        initWebView(holder?.typeDescription)
+        holder?.typeDescription.loadData(data.millet_type, "text/html; charset=UTF-8", null)
+
+        initWebView(holder?.description)
+        holder?.description.loadData(data.description, "text/html; charset=UTF-8", null)
+
+        initWebView(holder?.usesDescription)
+        holder?.usesDescription.loadData(data.uses, "text/html; charset=UTF-8", null)
+
+        initWebView(holder?.alternativeNamesDescription)
+        holder?.alternativeNamesDescription.loadData(data.alternative_names, "text/html; charset=UTF-8", null)
+
+
+        if(data.description == null || data.description.isEmpty()) {
             holder?.protocolLayout.visibility = View.GONE
         } else {
             holder?.protocolLayout.visibility = View.VISIBLE
         }
 
-        if(data.uses.isEmpty()) {
+        if(data.uses == null || data.uses.isEmpty()) {
             holder?.usesLayout.visibility = View.GONE
         } else {
             holder?.usesLayout.visibility = View.VISIBLE
         }
 
-        if(data.alternative_names.isEmpty()) {
+        if(data.alternative_names == null || data.alternative_names.isEmpty()) {
             holder?.alternativeNamesLayout.visibility = View.GONE
         } else {
             holder?.alternativeNamesLayout.visibility = View.VISIBLE
@@ -90,7 +101,7 @@ class MilletNutritionItemsAdapter(private val context: Context, private val myDa
     private fun addDataToView(rootObject: JSONObject, nutritionLayout: LinearLayout) {
         val nutritionArray = ArrayList<NutritionData>()
 
-        val iterator : Iterator<String> = rootObject.keys();
+        val iterator : Iterator<String> = rootObject.keys()
 
         while (iterator.hasNext()) {
             val key: String = iterator.next()
@@ -138,6 +149,14 @@ class MilletNutritionItemsAdapter(private val context: Context, private val myDa
         val usesLayout = itemView.usesLayout
         val alternativeNamesLayout = itemView.alternativeNamesLayout
         val alternativeNamesDescription = itemView.alternativeNamesDescription
+    }
+
+    private fun initWebView(webview: WebView) {
+        webview?.getSettings().setJavaScriptEnabled(true)
+        webview?.getSettings().setPluginState(WebSettings.PluginState.ON)
+        webview?.getSettings().setJavaScriptCanOpenWindowsAutomatically(true)
+        webview?.getSettings().setSupportMultipleWindows(true)
+        webview?.getSettings().setAllowFileAccess(true)
     }
 
 }

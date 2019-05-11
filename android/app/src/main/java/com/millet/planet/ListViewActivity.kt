@@ -6,6 +6,7 @@ import android.graphics.drawable.ColorDrawable
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.SearchView
 import android.text.Html
 import android.text.method.ScrollingMovementMethod
 import android.view.View
@@ -27,16 +28,25 @@ import kotlinx.android.synthetic.main.activity_list_view.*
 import org.json.JSONObject
 import java.util.ArrayList
 import android.text.Spannable
+import android.webkit.WebSettings
+import android.webkit.WebView
 import com.millet.planet.customViews.textviews.PicassoImageGetter
+import android.widget.EditText
+import kotlinx.android.synthetic.main.activity_generic_search.*
+import kotlinx.android.synthetic.main.activity_list_view.backToDashboard
+import kotlinx.android.synthetic.main.activity_list_view.dataSearchView
+import kotlinx.android.synthetic.main.activity_list_view.recyclerView
 
 
+class ListViewActivity : AppCompatActivity(), VolleyCallback, SearchView.OnQueryTextListener {
 
-class ListViewActivity : AppCompatActivity(), VolleyCallback {
 
     lateinit var faqAdapter: FAQItemsAdapter
     lateinit var globalJsonAdapter: GlobalJsonItemsAdapter
     lateinit var kidsInstructionItemsAdapter: KidsInstructionItemsAdapter
     lateinit var lifestyleItemsAdapter: LifestyleItemsAdapter
+    lateinit var diseaseAdapter: DiesaseDietItemsAdapter
+    lateinit var cancerAdapter: CancerDietItemsAdapter
 
     var isLastPage: Boolean = false
     var isLoading: Boolean = false
@@ -66,25 +76,46 @@ class ListViewActivity : AppCompatActivity(), VolleyCallback {
 
         layoutManagerMain = LinearLayoutManager(this)
 
-//        if (action.equals("global", true)) {
-//            aboutView.visibility = View.VISIBLE
-//            fetchData(apiURL, ServiceManager.GLOBAL_JSON_REQUEST_NUMBER)
-//            recyclerView.visibility = View.GONE
-//        } else {
-            if (pageTitle.text.toString().equals("About Doctor Khader Vali", true)) {
-                aboutView.visibility = View.VISIBLE
-                fetchData(apiURL, ServiceManager.ABOUT_REQUEST_NUMBER)
-                recyclerView.visibility = View.GONE
+        if (pageTitle.text.toString().equals("About Doctor Khader Vali", true)) {
+            aboutView.visibility = View.VISIBLE
+            fetchData(apiURL, ServiceManager.ABOUT_REQUEST_NUMBER)
+            recyclerView.visibility = View.GONE
+        } else {
+            aboutView.visibility = View.GONE
+            recyclerView.visibility = View.VISIBLE
+            recyclerView.layoutManager = layoutManagerMain
+            recyclerView.setHasFixedSize(true)
+
+            makeWebServiceCall(apiURL, pageTitle.text.toString())
+        }
+
+        /*Code for changing the search icon */
+        val searchIcon = dataSearchView.findViewById(android.support.v7.appcompat.R.id.search_button) as ImageView
+        searchIcon.setImageResource(R.drawable.search)
+
+        val closeIcon = dataSearchView.findViewById(android.support.v7.appcompat.R.id.search_close_btn) as ImageView
+        closeIcon.setImageResource(R.drawable.close)
+
+        searchIcon.setOnClickListener(View.OnClickListener {
+            dataSearchView.isIconified = false
+            pageTitle.visibility = View.GONE
+        })
+
+        closeIcon.setOnClickListener(View.OnClickListener {
+            if(dataSearchView.query.isEmpty()) {
+                dataSearchView.isIconified = true
+                pageTitle.visibility = View.VISIBLE
             } else {
-                aboutView.visibility = View.GONE
-                recyclerView.visibility = View.VISIBLE
-                recyclerView.layoutManager = layoutManagerMain
-                recyclerView.setHasFixedSize(true)
-
-                makeWebServiceCall(apiURL, pageTitle.text.toString())
+                dataSearchView.setQuery("", true)
             }
-//        }
+        })
 
+        val searchEditText = dataSearchView.findViewById(android.support.v7.appcompat.R.id.search_src_text) as EditText
+        searchEditText.setTextColor(resources.getColor(R.color.white))
+        searchEditText.setHintTextColor(resources.getColor(R.color.white))
+
+        dataSearchView.setOnQueryTextListener(this)
+        dataSearchView.queryHint = "Filter.."
     }
 
     private fun makeWebServiceCall(apiURL: String?, type : String?) {
@@ -101,9 +132,11 @@ class ListViewActivity : AppCompatActivity(), VolleyCallback {
             applyScrollListener(requestNumber)
         } else if (type.equals("Millet Diet For Diseases", true)){
             requestNumber = ServiceManager.DISEASE_DIET_REQUEST_NUMBER
+            dataSearchView.visibility = View.VISIBLE
         }  else if (type.equals("Millet Diet For Cancer", true)){
             requestNumber = ServiceManager.CANCER_DIET_REQUEST_NUMBER
-        }   else if (type.equals("Millet Nutrition", true)){
+            dataSearchView.visibility = View.VISIBLE
+        }   else if (type.equals("Find Millets", true)){
             requestNumber = ServiceManager.MILLET_NUTRITION_REQUEST_NUMBER
         }  else if (type.equals("Millet FAQ", true)){
             requestNumber = ServiceManager.FAQ_REQUEST_NUMBER
@@ -168,17 +201,16 @@ class ListViewActivity : AppCompatActivity(), VolleyCallback {
 
     override fun onVolleySuccess(response: String, requestNumber: Int) {
         if (requestNumber == ServiceManager.ABOUT_REQUEST_NUMBER) run {
-            var gson = Gson()
+            val gson = Gson()
             val listType = object : TypeToken<ArrayList<AboutData>>() {
             }.type
-            var aboutDataArray: ArrayList<AboutData>
+            val aboutDataArray: ArrayList<AboutData>
             aboutDataArray = gson.fromJson(response, listType)
 
-            var aboutData: AboutData = aboutDataArray.get(0)
+            val aboutData: AboutData = aboutDataArray.get(0)
 
-            aboutRenderedText.text = aboutData.about
-
-            aboutRenderedText.movementMethod = ScrollingMovementMethod()
+            initWebView(aboutRenderedText)
+            aboutRenderedText.loadData(aboutData.about, "text/html; charset=UTF-8", null)
 
             if(aboutData.image != "") {
                 Picasso.with(this).load(aboutData.image).into(aboutImage)
@@ -235,16 +267,16 @@ class ListViewActivity : AppCompatActivity(), VolleyCallback {
             }.type
             var diseaseDataArray: ArrayList<MilletDiseasesDietData> = gson.fromJson(response, listType)
 
-            var viewAdapter = DiesaseDietItemsAdapter(this, diseaseDataArray)
-            recyclerView.adapter = viewAdapter
+            diseaseAdapter = DiesaseDietItemsAdapter(this, diseaseDataArray)
+            recyclerView.adapter = diseaseAdapter
         } else if  (requestNumber == ServiceManager.CANCER_DIET_REQUEST_NUMBER) {
             var gson = Gson()
             val listType = object : TypeToken<ArrayList<MilletCancerDietData>>() {
             }.type
             var cancerDataArray: ArrayList<MilletCancerDietData> = gson.fromJson(response, listType)
 
-            var viewAdapter = CancerDietItemsAdapter(this, cancerDataArray)
-            recyclerView.adapter = viewAdapter
+            cancerAdapter = CancerDietItemsAdapter(this, cancerDataArray)
+            recyclerView.adapter = cancerAdapter
         } else if  (requestNumber == ServiceManager.FAQ_REQUEST_NUMBER) {
 
             isLoading = false
@@ -323,12 +355,11 @@ class ListViewActivity : AppCompatActivity(), VolleyCallback {
             dialogs.dismiss()
         }
 
-        val itemAnswer = dialogs.findViewById(R.id.itemAnswer) as TextView
+        val itemAnswer = dialogs.findViewById(R.id.itemAnswer) as WebView
 //        itemAnswer.text = Html.fromHtml(data.answer)
 
         var answer = data.answer
 
-        itemAnswer.movementMethod = ScrollingMovementMethod()
 
         val itemCount = dialogs.findViewById(R.id.itemCount) as ImageView
 
@@ -341,18 +372,44 @@ class ListViewActivity : AppCompatActivity(), VolleyCallback {
         if(!data.answer_icon.isEmpty()) {
             Picasso.with(this).load(data.answer_icon).into(answerImage)
         }
+//
+//        val imageGetter = PicassoImageGetter(itemAnswer, this)
+//        val html: Spannable
+//        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+//            html = Html.fromHtml(answer, Html.FROM_HTML_MODE_LEGACY, imageGetter, null) as Spannable
+//        } else {
+//            html = Html.fromHtml(answer, imageGetter, null) as Spannable
+//        }
+//        itemAnswer.setText(html)
 
-        val imageGetter = PicassoImageGetter(itemAnswer, this)
-        val html: Spannable
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-            html = Html.fromHtml(answer, Html.FROM_HTML_MODE_LEGACY, imageGetter, null) as Spannable
-        } else {
-            html = Html.fromHtml(answer, imageGetter, null) as Spannable
-        }
-        itemAnswer.setText(html)
+        initWebView(itemAnswer)
+        itemAnswer.loadData(answer, "text/html; charset=UTF-8", null)
 
         dialogs.show()
     }
 
+    private fun initWebView(webview: WebView) {
+        webview?.getSettings().setJavaScriptEnabled(true)
+        webview?.getSettings().setPluginState(WebSettings.PluginState.ON)
+        webview?.getSettings().setJavaScriptCanOpenWindowsAutomatically(true)
+        webview?.getSettings().setSupportMultipleWindows(true)
+        webview?.getSettings().setAllowFileAccess(true)
+    }
+
+    override fun onQueryTextSubmit(query: String?): Boolean {
+
+        return true
+    }
+
+    override fun onQueryTextChange(newText: String?): Boolean {
+
+        val text = newText
+        if(pageTitle.text.toString().equals("Millet Diet For Diseases", true)) {
+            text?.let { diseaseAdapter.filter(it) }
+        } else if (pageTitle.text.toString().equals("Millet Diet For Cancer", true)) {
+            text?.let { cancerAdapter.filter(it) }
+        }
+        return false
+    }
 
 }

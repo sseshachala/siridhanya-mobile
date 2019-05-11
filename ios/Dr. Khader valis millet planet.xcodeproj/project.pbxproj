@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2047B767501C30DC131F9440 /* Pods_Dr__Khader_valis_millet_planet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDF04D7668406994D8CE65CF /* Pods_Dr__Khader_valis_millet_planet.framework */; };
+		A30E0C3022721A9900AB8344 /* UniversalSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A30E0C2F22721A9900AB8344 /* UniversalSearchViewController.swift */; };
+		A31D69FF2270AB0A0023B731 /* LifeStyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A31D69FE2270AB0A0023B731 /* LifeStyleViewController.swift */; };
+		A372FCE922756B6F005F8467 /* UniversalSerachModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A372FCE822756B6F005F8467 /* UniversalSerachModel.swift */; };
 		A3810D8E22684E6E001A90A1 /* OthersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3810D8D22684E6E001A90A1 /* OthersViewController.swift */; };
 		A3810D9122684EB9001A90A1 /* OtherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3810D9022684EB9001A90A1 /* OtherTableViewCell.swift */; };
 		A3810D93226854E4001A90A1 /* OtherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3810D92226854E4001A90A1 /* OtherModel.swift */; };
@@ -31,6 +34,7 @@
 		A3A9D60C22627A2E00107544 /* CommanTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A9D60B22627A2E00107544 /* CommanTableViewController.swift */; };
 		A3A9D60E22627A9C00107544 /* CommanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A9D60D22627A9C00107544 /* CommanTableViewCell.swift */; };
 		A3A9D61222627CD300107544 /* CommanModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A9D61122627CD300107544 /* CommanModel.swift */; };
+		A3AE57A522835863000DB52E /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AE57A422835863000DB52E /* StringExtension.swift */; };
 		A3FE93CF22636F8F00F6D708 /* CommanTableCellTypeTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FE93CE22636F8F00F6D708 /* CommanTableCellTypeTwo.swift */; };
 		A3FE93D222638D1C00F6D708 /* QuestionAnswerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FE93D122638D1C00F6D708 /* QuestionAnswerTableViewCell.swift */; };
 		A3FE93D52263964600F6D708 /* NutritinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FE93D42263964600F6D708 /* NutritinViewController.swift */; };
@@ -43,6 +47,9 @@
 /* Begin PBXFileReference section */
 		4279A6049072589F0449B3CB /* Pods-Dr. Khader valis millet planet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dr. Khader valis millet planet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dr. Khader valis millet planet/Pods-Dr. Khader valis millet planet.debug.xcconfig"; sourceTree = "<group>"; };
 		9104B9994C7BD15CC021B5D4 /* Pods-Dr. Khader valis millet planet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dr. Khader valis millet planet.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dr. Khader valis millet planet/Pods-Dr. Khader valis millet planet.release.xcconfig"; sourceTree = "<group>"; };
+		A30E0C2F22721A9900AB8344 /* UniversalSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversalSearchViewController.swift; sourceTree = "<group>"; };
+		A31D69FE2270AB0A0023B731 /* LifeStyleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeStyleViewController.swift; sourceTree = "<group>"; };
+		A372FCE822756B6F005F8467 /* UniversalSerachModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversalSerachModel.swift; sourceTree = "<group>"; };
 		A3810D8D22684E6E001A90A1 /* OthersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersViewController.swift; sourceTree = "<group>"; };
 		A3810D9022684EB9001A90A1 /* OtherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherTableViewCell.swift; sourceTree = "<group>"; };
 		A3810D92226854E4001A90A1 /* OtherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherModel.swift; sourceTree = "<group>"; };
@@ -68,6 +75,7 @@
 		A3A9D60B22627A2E00107544 /* CommanTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommanTableViewController.swift; sourceTree = "<group>"; };
 		A3A9D60D22627A9C00107544 /* CommanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommanTableViewCell.swift; sourceTree = "<group>"; };
 		A3A9D61122627CD300107544 /* CommanModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommanModel.swift; sourceTree = "<group>"; };
+		A3AE57A422835863000DB52E /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		A3FE93CE22636F8F00F6D708 /* CommanTableCellTypeTwo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommanTableCellTypeTwo.swift; sourceTree = "<group>"; };
 		A3FE93D122638D1C00F6D708 /* QuestionAnswerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionAnswerTableViewCell.swift; sourceTree = "<group>"; };
 		A3FE93D42263964600F6D708 /* NutritinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritinViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +106,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A30E0C2E22721A6F00AB8344 /* UniversalSearch */ = {
+			isa = PBXGroup;
+			children = (
+				A30E0C2F22721A9900AB8344 /* UniversalSearchViewController.swift */,
+			);
+			path = UniversalSearch;
+			sourceTree = "<group>";
+		};
 		A3810D8F22684E76001A90A1 /* OtherViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +121,14 @@
 				A3810D9022684EB9001A90A1 /* OtherTableViewCell.swift */,
 			);
 			path = OtherViewController;
+			sourceTree = "<group>";
+		};
+		A39446C42270A8EC00B3F441 /* LifeStyle */ = {
+			isa = PBXGroup;
+			children = (
+				A31D69FE2270AB0A0023B731 /* LifeStyleViewController.swift */,
+			);
+			path = LifeStyle;
 			sourceTree = "<group>";
 		};
 		A3A9D5BA22623F0C00107544 = {
@@ -147,6 +171,7 @@
 		A3A9D5E122623FC800107544 /* Comman */ = {
 			isa = PBXGroup;
 			children = (
+				A3AE57A422835863000DB52E /* StringExtension.swift */,
 				A3A9D5E222623FC800107544 /* Parameter.swift */,
 				A3A9D5E322623FC800107544 /* Common_Methods.swift */,
 			);
@@ -191,6 +216,9 @@
 		A3A9D5FA2262437400107544 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				A3AE57A022832FE0000DB52E /* Registration */,
+				A30E0C2E22721A6F00AB8344 /* UniversalSearch */,
+				A39446C42270A8EC00B3F441 /* LifeStyle */,
 				A3810D8F22684E76001A90A1 /* OtherViewController */,
 				A3FE93DA2263B50200F6D708 /* QuestionAnswer */,
 				A3FE93D3226395F200F6D708 /* Nutrition */,
@@ -210,6 +238,7 @@
 				A3FE93D6226398F200F6D708 /* NUtritionModel.swift */,
 				A3FE93DD2263B96000F6D708 /* FAQModel.swift */,
 				A3810D92226854E4001A90A1 /* OtherModel.swift */,
+				A372FCE822756B6F005F8467 /* UniversalSerachModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -230,6 +259,13 @@
 				A3FE93CE22636F8F00F6D708 /* CommanTableCellTypeTwo.swift */,
 			);
 			path = CommanTableView;
+			sourceTree = "<group>";
+		};
+		A3AE57A022832FE0000DB52E /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Registration;
 			sourceTree = "<group>";
 		};
 		A3FE93D3226395F200F6D708 /* Nutrition */ = {
@@ -338,14 +374,20 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Dr. Khader valis millet planet/Pods-Dr. Khader valis millet planet-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ADCountryPicker/ADCountryPicker.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/MaterialTextField/MaterialTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftSpinner/SwiftSpinner.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ADCountryPicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSpinner.framework",
@@ -386,17 +428,21 @@
 				A3A9D60922626EE900107544 /* AboutViewModel.swift in Sources */,
 				A3A9D60722626B6D00107544 /* AboutViewController.swift in Sources */,
 				A3FE93D222638D1C00F6D708 /* QuestionAnswerTableViewCell.swift in Sources */,
+				A31D69FF2270AB0A0023B731 /* LifeStyleViewController.swift in Sources */,
 				A3A9D5F62262402000107544 /* DashBoard.swift in Sources */,
 				A3FE93DE2263B96000F6D708 /* FAQModel.swift in Sources */,
 				A3A9D5F222623FD900107544 /* WebService.swift in Sources */,
 				A3810D8E22684E6E001A90A1 /* OthersViewController.swift in Sources */,
 				A3FE93DC2263B52D00F6D708 /* FAQ.swift in Sources */,
+				A3AE57A522835863000DB52E /* StringExtension.swift in Sources */,
 				A3FE93D7226398F200F6D708 /* NUtritionModel.swift in Sources */,
 				A3FE93CF22636F8F00F6D708 /* CommanTableCellTypeTwo.swift in Sources */,
+				A372FCE922756B6F005F8467 /* UniversalSerachModel.swift in Sources */,
 				A3810D9122684EB9001A90A1 /* OtherTableViewCell.swift in Sources */,
 				A3A9D5E822623FCE00107544 /* ViewWithShadow.swift in Sources */,
 				A3A9D60E22627A9C00107544 /* CommanTableViewCell.swift in Sources */,
 				A3FE93D92263A1A800F6D708 /* NutritoinCell.swift in Sources */,
+				A30E0C3022721A9900AB8344 /* UniversalSearchViewController.swift in Sources */,
 				A3A9D5F42262400D00107544 /* AppDelegate.swift in Sources */,
 				A3FE93D52263964600F6D708 /* NutritinViewController.swift in Sources */,
 				A3A9D5E522623FC800107544 /* Common_Methods.swift in Sources */,
@@ -531,8 +577,8 @@
 			baseConfigurationReference = 4279A6049072589F0449B3CB /* Pods-Dr. Khader valis millet planet.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6V8S47S7JE;
 				INFOPLIST_FILE = "Dr. Khader valis millet planet/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -542,7 +588,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.millet.planet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = MilletDistribution;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -553,8 +599,8 @@
 			baseConfigurationReference = 9104B9994C7BD15CC021B5D4 /* Pods-Dr. Khader valis millet planet.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6V8S47S7JE;
 				INFOPLIST_FILE = "Dr. Khader valis millet planet/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -564,7 +610,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.millet.planet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = MilletDistribution;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

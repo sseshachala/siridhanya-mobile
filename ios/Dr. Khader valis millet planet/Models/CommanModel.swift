@@ -23,13 +23,22 @@ class CommanModel: NSObject {
     var cancer_type:String = ""
     var dictoction_kashayas_juice_afternoon_each_week:String = ""
     var dictoction_kashayas_juice_every_week:String = ""
+    var Dictoction_Kashayam_Diet:String = ""
+    var Tags_Keywords:String = ""
+    var Type_of_Ailment:String = ""
    
+    
     
     func getCommanModelWith(dict:[String:AnyObject]) -> CommanModel{
         
-        
-        if let cancer_type = dict["cancer_type"] as? String{
-            self.cancer_type = cancer_type
+        if let Dictoction_Kashayam_Diet = dict["Dictoction_Kashayam_Diet"] as? String{
+            self.Dictoction_Kashayam_Diet = Dictoction_Kashayam_Diet
+        }
+        if let Tags_Keywords = dict["Tags_Keywords"] as? String{
+            self.Tags_Keywords = Tags_Keywords
+        }
+        if let Type_of_Ailment = dict["Type_of_Ailment"] as? String{
+            self.Type_of_Ailment = Type_of_Ailment
         }
         if let dictoction_kashayas_juice_afternoon_each_week = dict["dictoction_kashayas_juice_afternoon_each_week"] as? String{
             self.dictoction_kashayas_juice_afternoon_each_week = dictoction_kashayas_juice_afternoon_each_week

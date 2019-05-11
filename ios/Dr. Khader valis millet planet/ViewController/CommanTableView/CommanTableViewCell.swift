@@ -10,6 +10,9 @@ import UIKit
 
 class CommanTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var wevViewHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var webview: UIWebView!
     @IBOutlet weak var txtValueLbl: UILabel!
     @IBOutlet weak var coutLbl: UILabel!
     

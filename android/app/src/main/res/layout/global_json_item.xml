@@ -129,12 +129,12 @@
                         android:text="@string/description"
                         android:textColor="@color/colorPrimaryDark"/>
 
-                <com.millet.planet.customViews.textviews.RegularTextView
+
+                <WebView
                         android:id="@+id/description"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/milletPlanet"
-                        android:textSize="15sp"/>
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"></WebView>
+
 
             </LinearLayout>
 

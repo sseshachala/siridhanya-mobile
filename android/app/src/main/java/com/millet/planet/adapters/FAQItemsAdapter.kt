@@ -2,11 +2,13 @@ package com.millet.planet.adapters
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
+import android.text.Html
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.millet.planet.ListViewActivity
 import com.millet.planet.R
+import com.millet.planet.customViews.textviews.MyTagHandler
 import com.millet.planet.models.FAQData
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.faq_item.view.*
@@ -28,7 +30,7 @@ class FAQItemsAdapter(private val context: Context, private var myDataset: Array
 
         var data = myDataset.get(position)
 
-        holder?.itemNote?.text = data.question
+        holder?.itemNote?.text = Html.fromHtml(data.question, null, MyTagHandler())
 //        holder?.itemCount?.text = ((position + 1) as Int).toString()
 
         if(!data.question_icon.isEmpty()){

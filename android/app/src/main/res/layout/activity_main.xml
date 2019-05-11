@@ -3,30 +3,32 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
         tools:context=".MainActivity">
 
         <RelativeLayout
                 android:id="@+id/app_main_bar"
                 android:layout_width="match_parent"
-                      android:layout_height="55dp"
-        android:elevation="5dp">
+                android:layout_height="55dp"
+            android:elevation="5dp">
 
 
             <com.millet.planet.customViews.textviews.BoldTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-            android:text="@string/milletPlanet"
-            android:layout_centerInParent="true"
-            android:textSize="27sp"
+            android:text="@string/app_name"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+            android:textSize="25sp"
             android:textColor="@color/colorPrimaryDark"/>
 
 
             <ImageView
                     android:id="@+id/syncDashboard"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@drawable/sync"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    app:srcCompat="@drawable/sync"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="10dp"/>

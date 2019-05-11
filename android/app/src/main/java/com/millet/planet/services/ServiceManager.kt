@@ -14,18 +14,22 @@ import com.android.volley.DefaultRetryPolicy
 class ServiceManager {
 
     companion object {
-        val DASHBOARD_REQUEST_NUMBER : Int = 1
-        val MILLET_NUTRITION_REQUEST_NUMBER : Int = 2
-        val ABOUT_REQUEST_NUMBER : Int = 3
-        val KIDS_INSTRUCTION_REQUEST_NUMBER : Int = 4
-        val LIFESTYLE_REQUEST_NUMBER : Int = 5
-        val DISEASE_DIET_REQUEST_NUMBER : Int = 6
-        val CANCER_DIET_REQUEST_NUMBER : Int = 7
-        val FAQ_REQUEST_NUMBER : Int = 8
-        val GLOBAL_JSON_REQUEST_NUMBER : Int = 9
+        const val DASHBOARD_REQUEST_NUMBER : Int = 1
+        const val MILLET_NUTRITION_REQUEST_NUMBER : Int = 2
+        const val ABOUT_REQUEST_NUMBER : Int = 3
+        const val KIDS_INSTRUCTION_REQUEST_NUMBER : Int = 4
+        const val LIFESTYLE_REQUEST_NUMBER : Int = 5
+        const val DISEASE_DIET_REQUEST_NUMBER : Int = 6
+        const val CANCER_DIET_REQUEST_NUMBER : Int = 7
+        const val FAQ_REQUEST_NUMBER : Int = 8
+        const val GLOBAL_JSON_REQUEST_NUMBER : Int = 9
+        const val USER_REGISTRATION_REQUEST_NUMBER : Int = 10
 
         fun makeStringRequest(context: Context, requestType: Int, callback: VolleyCallback, requestNumber: Int, url: String){
-            val stringRequest = object : StringRequest(requestType, url,
+
+            val finalURL : String = url.replace(" ", "%20")
+
+            val stringRequest = object : StringRequest(requestType, finalURL,
                 Response.Listener<String> { response ->
                     try {
 //                        val obj = JSONObject(response)
@@ -34,11 +38,7 @@ class ServiceManager {
                         e.printStackTrace()
                     }
                 },
-                object : Response.ErrorListener {
-                    override fun onErrorResponse(volleyError: VolleyError) {
-                        callback.onVolleyError(volleyError.message)
-                    }
-                })
+                Response.ErrorListener { volleyError -> callback.onVolleyError(volleyError.message) })
             {
                 @Throws(AuthFailureError::class)
                 override fun getParams(): Map<String, String> {
@@ -53,7 +53,7 @@ class ServiceManager {
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT
             )
-            stringRequest.setRetryPolicy(policy)
+            stringRequest.retryPolicy = policy
             stringRequest.setShouldCache(false)
 
             //adding request to queue

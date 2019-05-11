@@ -45,7 +45,7 @@
                     android:id="@+id/closeDialog"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/cancel"
+                    app:srcCompat="@drawable/cancel"
                     android:layout_alignParentRight="true"
                     android:layout_marginRight="5dp"
                     android:layout_centerVertical="true"/>
@@ -64,13 +64,12 @@
                 android:layout_below="@+id/questionLayout"/>
 
 
-        <com.millet.planet.customViews.textviews.RegularTextView
+        <WebView
                 android:id="@+id/itemAnswer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/answerImage"
-                android:padding="10dp"
-        android:scrollbars="vertical|horizontal"/>
+                android:layout_below="@+id/answerImage"></WebView>
+
 
     </RelativeLayout>
 </android.support.v7.widget.CardView>

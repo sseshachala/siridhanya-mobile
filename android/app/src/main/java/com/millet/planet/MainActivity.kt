@@ -97,8 +97,20 @@ class MainActivity : AppCompatActivity(), VolleyCallback{
         if(dashboardArray.get(position).action.equals("redirect", true)) run {
             openDefaultBrowser(dashboardArray.get(position).service_name)
         } else run {
-            openListActivity(dashboardArray.get(position))
+            if(dashboardArray.get(position).menu_name.equals("search", true)){
+                openSearchActivity(dashboardArray.get(position))
+            } else {
+                openListActivity(dashboardArray.get(position))
+            }
         }
+    }
+
+    private fun openSearchActivity(data: DashBoardData) {
+        val openActivity = Intent(this, GenericSearchActivity::class.java)
+        openActivity.putExtra("api", data.service_name)
+        openActivity.putExtra("title", data.menu_name)
+        openActivity.putExtra("action", data.action)
+        startActivity(openActivity)
     }
 
     private fun openListActivity(data: DashBoardData) {
